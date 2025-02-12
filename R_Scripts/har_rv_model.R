@@ -175,7 +175,11 @@ ggplot(data=bacfdf, aes(x=lag, y=acf)) +
   theme_classic() +  
   labs(title = "Autocorrelation Function - HAR-RV", x = "Lag", y = "Autocorrelation")
 
-# Conclusion: This document outlines the comprehensive steps undertaken for data collection, 
+# -------------------------------------------------
+# Conclusion
+# -------------------------------------------------
+
+# This document outlines the comprehensive steps undertaken for data collection, 
 # processing, and analysis of FTSE-100 realized volatility as part of my master's thesis. 
 # The methodologies include calculating realized volatility, aggregating weekly and monthly volatilities, 
 # and implementing the HAR model with a rolling window approach. The analysis of residuals and 
