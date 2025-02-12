@@ -1,6 +1,13 @@
-# MSc Thesis - Volatility Forecasting & Time Series Analysis in R
+# 📊 MSc Thesis - Volatility Forecasting & Time Series Analysis in R  
 
-This repository contains selected **R scripts and models** from my **Master's thesis in Finance**, which focused on **volatility forecasting using the HAR (Heterogeneous Autoregressive) model**. The thesis explored **16 different variations** of HAR-based models to improve volatility predictions in financial markets.
+This repository is part of my **Master's thesis in Finance** at the **University of Minho**, titled:  
+📖 *"Forecasting FTSE-100 Volatility Using HAR-Type Models"*.  
+
+The research explores **16 variations of HAR-based models** to enhance volatility forecasting, incorporating **jumps, signed jumps, realized semivariance, and leverage effects**. The models were tested using multiple loss functions and statistical validation techniques to evaluate predictive performance.  
+
+📄 **Full Thesis Available Here:**  
+🔗 [Forecasting FTSE-100 Volatility Using HAR-Type Models](https://repositorium.sdum.uminho.pt/handle/1822/69474)  
+
 
 ## 📂 Available Files
 
@@ -38,11 +45,6 @@ The results showed that **weekly volatility had the strongest predictive power**
 ## ⚠ Data Disclaimer
 The dataset used in this research contains proprietary financial data and cannot be shared. However, the **R scripts** in this repository can be used with any similar time series dataset. Users are encouraged to apply the models with their own data.
 
-## 📄 Full Thesis
-
-The full dissertation **"Forecasting FTSE-100 Volatility Using HAR-Type Models"** is available at the official repository of the University of Minho. You can access it through the following link:
-
-🔗 [Forecasting FTSE-100 Volatility Using HAR-Type Models](https://repositorium.sdum.uminho.pt/handle/1822/69474)
 
 ## 📚 References
 
