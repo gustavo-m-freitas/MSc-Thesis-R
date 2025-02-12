@@ -59,6 +59,12 @@ har <- ftse_rv %>%
 
 head(har)
 
+# Applying lag(1) ensures that projections (har_s) are shifted forward by one step, 
+# effectively excluding the first forecasted value. This adjustment prevents look-ahead bias 
+# by ensuring that the forecast for time t is based solely on data available up to time t-1. 
+# In financial models, this alignment maintains the integrity of predictive evaluation 
+# by avoiding incorrect comparisons and ensuring that forecasts rely only on past information.
+
 # ------------------------------------------------
 # 6. Estimate HAR Model - In-sample analysis
 # ------------------------------------------------
