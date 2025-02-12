@@ -1,17 +1,18 @@
+# -------------------------------------------------
 # HAR-RV-J Model Implementation
 # Author: Gustavo Freitas
 # Master's Thesis: Forecasting FTSE-100 Volatility Using HAR-Type Models
+# -------------------------------------------------
 
+# -------------------------------------------------
 # Load required packages
+# -------------------------------------------------
 library(dplyr)
 library(readr)
 library(slider)
 library(tidyverse)
 library(lmtest)
 library(sandwich)
-
-# Set working directory (optional, adjust as needed)
-#setwd("C:/Users/gusta/Desktop/R_studio")
 
 # -------------------------------------------------
 # 1. Load Processed Data
