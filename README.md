@@ -38,6 +38,18 @@ The results showed that **weekly volatility had the strongest predictive power**
 ## ⚠ Data Disclaimer
 The dataset used in this research contains proprietary financial data and cannot be shared. However, the **R scripts** in this repository can be used with any similar time series dataset. Users are encouraged to apply the models with their own data.
 
+## 📄 Full Thesis
+
+The full dissertation **"Forecasting FTSE-100 Volatility Using HAR-Type Models"** is available at the official repository of the University of Minho. You can access it through the following link:
+
+🔗 [Forecasting FTSE-100 Volatility Using HAR-Type Models](https://repositorium.sdum.uminho.pt/handle/1822/69474)
+
+## 📚 References
+
+G. M. Freitas (2020). **Forecasting FTSE-100 Volatility Using HAR-Type Models**.  
+University of Minho Repository. Available at: [https://repositorium.sdum.uminho.pt/handle/1822/69474](https://repositorium.sdum.uminho.pt/handle/1822/69474)
+
+
 ## 🔧 How to Use
 1. Clone the repository:
    ```bash
