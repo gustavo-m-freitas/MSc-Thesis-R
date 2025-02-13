@@ -65,7 +65,7 @@ install.packages(c("dplyr", "ggplot2", "tidyverse", "lmtest", "slider"))
 
 ## 📫 Contact
 📩 **Email:** gustavo.provento@gmail.com  
-💼 **LinkedIn:** [linkedin.com/in/gustavomfreitas](https://www.linkedin.com/in/gustavomfreitas)  
-📂 **GitHub:** [github.com/gustavomfreitas](https://github.com/gustavomfreitas)
+💼 **LinkedIn:** [linkedin.com/in/gustavo-m-freitas](https://www.linkedin.com/in/gustavo-m-freitas)  
+📂 **GitHub:** [github.com/gustavo-m-freitas](https://github.com/gustavo-m-freitas)
 
 
