@@ -55,7 +55,7 @@ University of Minho Repository. Available at: [https://repositorium.sdum.uminho.
 ## 🔧 How to Use
 1. Clone the repository:
    ```bash
-   git clone https://github.com/gustavomfreitas/MSc-Thesis-R.git
+   git clone https://github.com/gustavo-m-freitas/MSc-Thesis-R.git
    ```
 2. Navigate to the `R_Scripts/` directory and run the `.R` scripts with your dataset.
 3. Install required R packages before running the scripts:
