@@ -1,0 +1,128 @@
+---
+title: "Data Processing"
+author: "Gustavo Freitas"
+subtitle: "Master's Thesis: Forecasting FTSE-100 Volatility Using HAR-Type Models"
+description: "This document is part of my master's thesis and focuses on the initial data collection and processing for forecasting FTSE-100 volatility using HAR-type models."
+output:
+  pdf_document: default
+  html_notebook: default
+  github_document: default
+---
+
+```{r setup, include=FALSE}
+# Load required packages
+library(dplyr)
+library(readr)
+library(lubridate)
+library(purrr)
+```
+
+```{r setwd, include=FALSE, cache=TRUE}
+#getwd()
+setwd("C:/Users/gusta/Desktop/R_studio")
+```
+
+
+## **1. Data Loading and Processing**
+
+```{r load_data_function, echo=TRUE}
+# Function to load and count data
+load_ftse_data <- function(year) {
+  file_path <- paste0("equity-index_FT100_", year, ".txt")
+  message("Loading file: ", file_path)
+  
+  if (!file.exists(file_path)) {
+    stop("Error: File does not exist - ", file_path)
+  }
+  
+  data <- read_csv(file = file_path, col_names = FALSE, show_col_types = FALSE)
+  return(data)
+}
+```
+
+## **2. Load and Consolidate Data**
+
+```{r load_and_merge_data, echo=TRUE}
+# List of years to load
+years <- 2000:2009
+
+# Load and merge datasets
+ftse_data <- map_dfr(years, load_ftse_data, .id = "year")
+```
+
+## **3. Data Summary**
+
+```{r summary, echo=TRUE}
+# Display dataset summary
+message("Summary of the consolidated dataset:")
+print(dim(ftse_data))
+```
+
+## **4. Data Transformation**
+```{r data_transformation, echo=TRUE}
+# Rename columns and remove 'year' column
+ftse <- ftse_data %>% 
+  rename(date = X1, time = X2, value = X3) %>% 
+  select(-year) %>%
+  mutate(date = as.Date(date, format="%d.%m.%Y"),
+         time = hms::as_hms(time),
+         value = as.numeric(value),
+         value_var = value/lag(value) - 1,
+         timestamp = as_datetime(paste(date, time)),
+         time_diff = as.numeric(timestamp - dplyr::lag(timestamp))) %>%
+  filter(!is.na(date),
+         timestamp != "2000-01-04 08:00:01")
+```
+
+## **5. Grouping and Aggregation**
+```{r data_grouping, echo=TRUE}
+# Aggregate data by timestamp
+ftse <- ftse %>%
+  group_by(timestamp) %>%
+  summarise(value = mean(value, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  mutate(date = lubridate::date(timestamp),
+         time = format(timestamp, "%H:%M:%S"),
+         time_diff = as.numeric(timestamp - dplyr::lag(timestamp)),
+         value_var = value/lag(value) - 1)%>% 
+  select(date, time, value, timestamp, time_diff) %>% 
+  filter(timestamp != "2000-01-04 08:00:16")
+```
+
+## **6. Data Summary 2**
+
+```{r summary_2, echo=TRUE}
+# Display dataset summary
+message("Final dataset summary:")
+print(dim(ftse))
+print(summary(ftse))
+```
+
+```{r save_csv, include=FALSE, echo=TRUE}
+## **Save File**
+# Save the dataset as a CSV file
+#write.csv(ftse, "FTSE_2025.csv", row.names = FALSE)
+```
+
+
+
+
+
+## **Conclusion**
+This document details the data collection, cleaning, and processing steps for FTSE-100 volatility analysis as part of my master's thesis. The next phases will focus on further data cleaning, feature engineering, exploratory data analysis, and implementing HAR-type models for volatility forecasting.
+
+```{r export_pdf, include=FALSE, echo=TRUE, eval=FALSE}
+## **Exporting Code to PDF**
+# Knit document to PDF with optimizations
+
+#rmarkdown::render(
+  #input = "Arquivos_FTSE_2025_l.Rmd", 
+  #output_format = "pdf_document", 
+  #quiet = TRUE)
+```
+
+```{r explicações, include=FALSE}
+# include=FALSE	O código e a saída não aparecem, mas o código é executado.
+# echo=FALSE	O código não aparece, mas a saída é mostrada.
+# eval=FALSE	O código não é executado, mas é mostrado como texto.
+```
